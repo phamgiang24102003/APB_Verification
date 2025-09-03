@@ -1,14 +1,4 @@
 # vsim -assertdebug -do {log -r /*; run -all;} -l report.log -debugDB -voptargs=+acc -c tb_top 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# 
-# ** Note: (vsim-8611) Generating debug db.
-# 
-# ** Note: (vopt-4301) Memory core inferred for signal 'mem' width=8, depth=64, type=RAM at location ../rtl/slave1.v:14
-# 
-# ** Note: (vopt-4301) Memory core inferred for signal 'mem2' width=8, depth=64, type=RAM at location ../rtl/slave2.v:14
-# 
-# ** Note: (vopt-143) Recognized 1 FSM in module "master(fast)".
-# 
 # //  Questa Sim-64
 # //  Version 10.2c Unknown Platform Jul 19 2013
 # //
@@ -33,6 +23,8 @@
 # Loading work.slave2(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading C:/New folder/uvm-1.1d\win64\uvm_dpi.dll
+# ** Note: (vsim-8716) Reusing existing debug database vsim.dbg.
+# 
 # log -r /* 
 #  run -all 
 # ----------------------------------------------------------------
