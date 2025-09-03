@@ -18,35 +18,30 @@ class apb_test extends apb_base_test;
     super.run_phase (phase);
     phase.raise_objection(this);
 
-    `uvm_info("DIRECTION TEST", $sformatf("Check Read/Write with direction data = [0:63]\n"), UVM_HIGH)
     //Check Read/Write with direction data = [0:31]
     //Slave 1
     for (int i = 0; i < 32; i++) begin
       wr_data_to_mem (i, i + 8'h00, 0, 0);
       rd_data_from_mem (i, 0);
     end
-    `uvm_info("DIRECTION TEST", $sformatf("Check Read/Write with direction data = [192:255]\n"), UVM_HIGH)
     //Check Read/Write with direction data = [192:255]
     //Slave 2
     for (int i = 256; i < 288; i++) begin
       wr_data_to_mem (i, i + 8'hC0 - 256, 0, 0);
       rd_data_from_mem (i, 0);
     end
-    `uvm_info("RANDOM TEST", $sformatf("Check Read/Write with direction data = [128:191]\n"), UVM_HIGH)
     //Check Read/Write with random data = [128:191]
     //Slave 2
     for (int i = 288; i < 320; i++) begin
       wr_data_to_mem(i, $urandom_range(128, 191), 0, 0);
       rd_data_from_mem(i, 0);
     end
-    `uvm_info("RANDOM TEST", $sformatf("Check Read/Write with direction data = [64:127]\n"), UVM_HIGH)
     //Check Read/Write with random data = [32:127]
     //Slave 1
     for (int i = 32; i < 64; i++) begin
       wr_data_to_mem(i, $urandom_range(64, 127), 0, 0);
       rd_data_from_mem(i, 0);
     end
-    `uvm_info("ERROR TEST", $sformatf("Check Read/Write with random data for slave error\n"), UVM_HIGH)
     //Check Read/Write with random data for slave error
     _env_cfg._agent_cfg.err = 1;
     for (int i = 64; i < 256; i++) begin

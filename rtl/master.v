@@ -125,3 +125,4 @@ module master (
     assign PSLVERR = invalid_setup_error;
 
 endmodule
+
